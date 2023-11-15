@@ -32,8 +32,8 @@ const GameOption = ({ onhandleOptions }: OptionProps) => {
           <label>Row</label>
           <NumberInput
             type="number"
-            min="1"
-            max="40"
+            min="2"
+            max="30"
             name="rows"
             value={rows}
             onChange={handleChange}
@@ -42,8 +42,8 @@ const GameOption = ({ onhandleOptions }: OptionProps) => {
           <label>Column</label>
           <NumberInput
             type="number"
-            min="1"
-            max="40"
+            min="2"
+            max="30"
             name="columns"
             value={columns}
             onChange={handleChange}
