@@ -73,7 +73,7 @@ const GameBoard = ({ row = 6, column = 6 }: Boards) => {
     }
     setNumberBalloons(updatedNumberBalloons);
     setMaxNumber(updatedMaxNumber);
-  }, [balloons, row, column, numberballoons, setNumberBalloons]);
+  }, [balloons]);
 
   // row, column 바뀔때바다 + reset 버튼을 누를때 새로 보드판을 랜덤으로 생성
   useEffect(() => {
@@ -90,7 +90,6 @@ const GameBoard = ({ row = 6, column = 6 }: Boards) => {
         setclickedCell(updatedCell);
       }
       const updatedBalloons = [...balloons];
-
       let updatedTotalBalloons = totalballoons;
       let pop = 0;
       for (let i = 0; i < 5; i++) {

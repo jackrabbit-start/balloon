@@ -68,9 +68,11 @@ const Container = styled.div`
 
 const NumberInput = styled.input`
   width: 100%;
+  margin-bottom: 10px;
 `;
 
 const SubmitInput = styled.input`
   width: 50px;
+  margin-bottom: 10px;
 `;
 export default GameOption;

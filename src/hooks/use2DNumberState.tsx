@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /* 
 row, column
@@ -20,6 +20,18 @@ const use2DNumberState = ({ row, column }: HookProps) => {
   }
 
   const [initState, setInitState] = useState<number[][]>(newArray);
+
+  useEffect(() => {
+    const updatedArray: number[][] = [];
+    for (let i = 0; i < row; i++) {
+      updatedArray[i] = [];
+      for (let j = 0; j < column; j++) {
+        updatedArray[i][j] = 0;
+      }
+    }
+
+    setInitState(updatedArray);
+  }, [row, column]);
 
   return [initState, setInitState] as const;
 };

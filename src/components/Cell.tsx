@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
+import { DarkmodeContext } from '../context/contextMode';
 
 /*
 게임판 안의 각 셀 관련 컴포넌트
@@ -22,9 +24,11 @@ interface StyleProps {
 }
 
 const Cell = ({ isClicked, isBalloon = false, onCellClick }: CellProps) => {
+  const { mode } = useContext(DarkmodeContext);
   return (
     <CellContainer isClicked={isClicked} onClick={onCellClick}>
-      {isBalloon ? <img src="src/assets/balloons.svg" /> : null}
+      {isBalloon && !mode ? <img src="src/assets/balloons.svg" /> : null}
+      {isBalloon && mode ? <img src="src/assets/whiteballoons.svg" /> : null}
     </CellContainer>
   );
 };
@@ -34,10 +38,10 @@ const CellContainer = styled.div<StyleProps>`
   height: 30px;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid ${(props) => props.theme.BorderColor};
   padding: 3px;
   align-items: center;
-  background-color: ${({ isClicked }) => (isClicked ? 'gray' : 'white')};
+  background-color: ${(props) => props.theme.BackgroundColor};
   cursor: pointer;
 
   img {
