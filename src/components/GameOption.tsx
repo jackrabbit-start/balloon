@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Boards } from './Types';
 
 interface OptionProps {
-  onhandleOptions: (rows: number, columns: number) => void;
+  onhandleOptions: ({ row, column }: Boards) => void;
 }
 
 const GameOption = ({ onhandleOptions }: OptionProps) => {
   const [form, setForm] = useState({
-    rows: 6,
-    columns: 6,
+    row: 6,
+    column: 6,
   });
 
-  const { rows, columns } = form;
+  const { row, column } = form;
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm({
@@ -22,7 +23,7 @@ const GameOption = ({ onhandleOptions }: OptionProps) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onhandleOptions(form.rows, form.columns);
+    onhandleOptions(form);
   };
 
   return (
@@ -34,8 +35,8 @@ const GameOption = ({ onhandleOptions }: OptionProps) => {
             type="number"
             min="2"
             max="30"
-            name="rows"
-            value={rows}
+            name="row"
+            value={row}
             onChange={handleChange}
           />
 
@@ -44,8 +45,8 @@ const GameOption = ({ onhandleOptions }: OptionProps) => {
             type="number"
             min="2"
             max="30"
-            name="columns"
-            value={columns}
+            name="column"
+            value={column}
             onChange={handleChange}
           />
         </div>

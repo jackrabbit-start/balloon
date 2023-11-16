@@ -2,19 +2,20 @@ import styled from 'styled-components';
 import GameBoard from './components/GameBoard';
 import { useState } from 'react';
 import GameOption from './components/GameOption';
+import { Boards } from './components/Types';
 
 const App = () => {
-  const [options, setOptions] = useState({ rows: 6, columns: 6 });
+  const [options, setOptions] = useState({ row: 6, column: 6 });
 
-  const handleOptions = (rows: number, columns: number) => {
-    setOptions({ rows, columns });
+  const handleOptions = ({ row, column }: Boards) => {
+    setOptions({ row, column });
   };
 
   return (
     <Container>
       <Title>Balloon Game</Title>
       <GameOption onhandleOptions={handleOptions} />
-      <GameBoard row={options.rows} column={options.columns} />
+      <GameBoard row={options.row} column={options.column} />
     </Container>
   );
 };
