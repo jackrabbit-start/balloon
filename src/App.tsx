@@ -7,7 +7,6 @@ import ToggleButton from './components/ToggleButton';
 
 const App = () => {
   const [options, setOptions] = useState({ row: 6, column: 6 });
-
   const handleOptions = ({ row, column }: Boards) => {
     setOptions({ row, column });
   };
