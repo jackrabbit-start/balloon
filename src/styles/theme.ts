@@ -1,14 +1,13 @@
-import { DefaultTheme } from "styled-components";
+import { DefaltTheme } from "styled-components"
 
-
-export const LightMode: DefaultTheme = {
-    bgColor: "white",
-    textColor: "black",
-    btnColor: "tomato",
+export const darktheme:DefaltTheme = {
+    Color: "#EFEFEF",
+    BackgroundColor: "#2F2F2F",
+    BorderColor: "white"
 }
 
-export const DarkMode: DefaultTheme = {
-    bgColor: "black",
-    textColor: "white",
-    btnColor: "teal",
-};
+export const lighttheme:DefaltTheme = {
+    Color: "black",
+    BackgroundColor: "white",
+    BorderColor: "black"
+}
